@@ -1,0 +1,23 @@
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "name": [
+            "The name field is required.",
+            "The name must be a string.",
+            "The name must not be greater than 25 characters."
+        ],
+        "email": [
+            "The email field is required.",
+            "The email must be a string.",
+            "The email must be a valid email address.",
+            "The email has already been taken."
+        ],
+        "password": [
+            "The password field is required.",
+            "The password must be a string.",
+            "The password confirmation does not match.",
+            "The password must be at least 8 characters.",
+            "The password must not be greater than 16 characters."
+        ]
+    }
+}

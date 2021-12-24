@@ -1,0 +1,10 @@
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "title": [
+            "The title field is required.",
+            "The title must not be greater than 60 characters.",
+            "The title must be a string."
+        ]
+    }
+}

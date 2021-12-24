@@ -1,0 +1,1409 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  '/project/{id}':
+    delete:
+      summary: 'Delete Project'
+      description: 'Delete register do Project'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: OK
+                properties:
+                  message:
+                    type: string
+                    example: OK
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Project]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Project]'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You dont have permission on this Project!'
+                properties:
+                  message:
+                    type: string
+                    example: 'You dont have permission on this Project!'
+      tags:
+        - Project
+      security: []
+    get:
+      summary: 'Show Project'
+      description: 'Return Project Data'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Project]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Project]'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You dont have permission on this Project!'
+                properties:
+                  message:
+                    type: string
+                    example: 'You dont have permission on this Project!'
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 4
+                      title: 'Title Exemple'
+                      owner: Christian
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        title: 'Title Exemple'
+                        owner: Christian
+                    items:
+                      type: object
+      tags:
+        - Project
+      security: []
+    put:
+      summary: 'Update Project'
+      description: 'Update Project Data'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Project]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Project]'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You dont have permission on this Project!'
+                properties:
+                  message:
+                    type: string
+                    example: 'You dont have permission on this Project!'
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 4
+                      title: 'Title Exemple'
+                      owner: Christian
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        title: 'Title Exemple'
+                        owner: Christian
+                    items:
+                      type: object
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    title:
+                      - 'The title field is required.'
+                      - 'The title must not be greater than 60 characters.'
+                      - 'The title must be a string.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    example:
+                      title:
+                        - 'The title field is required.'
+                        - 'The title must not be greater than 60 characters.'
+                        - 'The title must be a string.'
+      tags:
+        - Project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Project Title. Must not be greater than 60 characters.'
+                  example: 'New Project'
+              required:
+                - title
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The register id.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/project/unlink/{project}':
+    get:
+      summary: 'Unlink Project'
+      description: 'Unlink User to Project'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Project removed.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Project removed.'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Project]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Project]'
+      tags:
+        - Project
+      security: []
+    parameters:
+      -
+        in: path
+        name: project
+        description: ''
+        example: 12
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: id
+        description: 'The register id.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  '/project/link/{key}':
+    get:
+      summary: 'Link Project'
+      description: 'Link User to Project'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Project linked.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Project linked.'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Project]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Project]'
+      tags:
+        - Project
+      security: []
+    parameters:
+      -
+        in: path
+        name: key
+        description: 'The key of project.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  '/project/generate/{project}':
+    get:
+      summary: 'Generate link Project'
+      description: 'Generate link Project to other users'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: '/project/link/{{key}}'
+                properties:
+                  message:
+                    type: string
+                    example: '/project/link/{{key}}'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Project]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Project]'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You dont have permission on this Project!'
+                properties:
+                  message:
+                    type: string
+                    example: 'You dont have permission on this Project!'
+      tags:
+        - Project
+      security: []
+    parameters:
+      -
+        in: path
+        name: project
+        description: ''
+        example: 2
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: id
+        description: 'The register id.'
+        example: 4
+        required: true
+        schema:
+          type: integer
+  /project:
+    get:
+      summary: 'List Project'
+      description: 'Return all register'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 4
+                      title: 'Title Exemple'
+                      owner: Christian
+                    -
+                      id: 4
+                      title: Project
+                      owner: Fred
+                    -
+                      id: 4
+                      title: 'Work Flow'
+                      owner: Matheus
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        title: 'Title Exemple'
+                        owner: Christian
+                      -
+                        id: 4
+                        title: Project
+                        owner: Fred
+                      -
+                        id: 4
+                        title: 'Work Flow'
+                        owner: Matheus
+                    items:
+                      type: object
+      tags:
+        - Project
+      security: []
+    post:
+      summary: 'Create new Project'
+      description: 'Create new Project'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 4
+                      title: 'Title Exemple'
+                      owner: Christian
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        title: 'Title Exemple'
+                        owner: Christian
+                    items:
+                      type: object
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    title:
+                      - 'The title field is required.'
+                      - 'The title must not be greater than 60 characters.'
+                      - 'The title must be a string.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    example:
+                      title:
+                        - 'The title field is required.'
+                        - 'The title must not be greater than 60 characters.'
+                        - 'The title must be a string.'
+      tags:
+        - Project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Project Title. Must not be greater than 60 characters.'
+                  example: 'New Project'
+              required:
+                - title
+      security: []
+  '/task/{id}':
+    get:
+      summary: 'Show Task'
+      description: 'Return Task Data'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Task]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Task]'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You dont have permission on this Task!'
+                properties:
+                  message:
+                    type: string
+                    example: 'You dont have permission on this Task!'
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: Christian
+                    description: null
+                    status: OPEN
+                    deadline: '2021-12-21'
+                    project_id: 1
+                    project_name: 'Title Exemple'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      title: Christian
+                      description: null
+                      status: OPEN
+                      deadline: '2021-12-21'
+                      project_id: 1
+                      project_name: 'Title Exemple'
+      tags:
+        - Task
+      security: []
+    delete:
+      summary: 'Delete Task'
+      description: 'Delete register do Task'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: OK
+                properties:
+                  message:
+                    type: string
+                    example: OK
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Task]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Task]'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not on this project.'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not on this project.'
+      tags:
+        - Task
+      security: []
+    put:
+      summary: 'Update Task'
+      description: 'Update Task Data'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Task]'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Task]'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not on this project.'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not on this project.'
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: Christian
+                    description: null
+                    status: OPEN
+                    deadline: '2021-12-21'
+                    project_id: 1
+                    project_name: 'Title Exemple'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      title: Christian
+                      description: null
+                      status: OPEN
+                      deadline: '2021-12-21'
+                      project_id: 1
+                      project_name: 'Title Exemple'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    title:
+                      - 'The title must be a string.'
+                      - 'The title must not be greater than 60 characters.'
+                      - 'The title has already been taken.'
+                    description:
+                      - 'The description must be a string.'
+                    status:
+                      - 'The status must be a string.'
+                      - 'The status is invalid.'
+                    deadline:
+                      - 'The deadline does not match the format Y-m-d.'
+                      - 'The deadline does not match the format Y-m-d.'
+                    project_id:
+                      - 'The project id must be an integer.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    example:
+                      title:
+                        - 'The title must be a string.'
+                        - 'The title must not be greater than 60 characters.'
+                        - 'The title has already been taken.'
+                      description:
+                        - 'The description must be a string.'
+                      status:
+                        - 'The status must be a string.'
+                        - 'The status is invalid.'
+                      deadline:
+                        - 'The deadline does not match the format Y-m-d.'
+                        - 'The deadline does not match the format Y-m-d.'
+                      project_id:
+                        - 'The project id must be an integer.'
+      tags:
+        - Task
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Task Title. Must not be greater than 60 characters.'
+                  example: 'First Task'
+                description:
+                  type: string
+                  description: 'Task description. Must not be greater than 200 characters.'
+                  example: 'Create Project'
+                status:
+                  type: string
+                  description: 'ProjTaskect status.'
+                  example: ABERTO
+                deadline:
+                  type: string
+                  description: 'Task deadline. Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: 25/12/2021
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The register id.'
+        example: 8
+        required: true
+        schema:
+          type: integer
+  /task/list:
+    post:
+      summary: 'List Task'
+      description: 'Return all register'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    '2021-12-21':
+                      -
+                        id: 1
+                        title: Christian
+                        description: null
+                        status: OPEN
+                        deadline: '2021-12-21'
+                        project_id: 1
+                        project_name: 'Title Exemple'
+                      -
+                        id: 2
+                        title: Christian2
+                        description: null
+                        status: OPEN
+                        deadline: '2021-12-21'
+                        project_id: 1
+                        project_name: 'Title Exemple'
+                      -
+                        id: 3
+                        title: Christian3
+                        description: null
+                        status: OPEN
+                        deadline: '2021-12-21'
+                        project_id: 1
+                        project_name: 'Title Exemple'
+                    '2021-12-22':
+                      -
+                        id: 7
+                        title: Christian6
+                        description: null
+                        status: 'IN PROGRESS'
+                        deadline: '2021-12-22'
+                        project_id: 1
+                        project_name: 'Title Exemple'
+                      -
+                        id: 8
+                        title: Christian7
+                        description: null
+                        status: 'IN PROGRESS'
+                        deadline: '2021-12-22'
+                        project_id: 1
+                        project_name: 'Title Exemple'
+                    '2021-12-23':
+                      -
+                        id: 10
+                        title: Christian8
+                        description: null
+                        status: REVIEW
+                        deadline: '2021-12-23'
+                        project_id: 1
+                        project_name: 'Title Exemple'
+                    '2021-12-24':
+                      -
+                        id: 11
+                        title: Christian9
+                        description: null
+                        status: CLOSE
+                        deadline: '2021-12-24'
+                        project_id: 1
+                        project_name: 'Title Exemple'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      '2021-12-21':
+                        -
+                          id: 1
+                          title: Christian
+                          description: null
+                          status: OPEN
+                          deadline: '2021-12-21'
+                          project_id: 1
+                          project_name: 'Title Exemple'
+                        -
+                          id: 2
+                          title: Christian2
+                          description: null
+                          status: OPEN
+                          deadline: '2021-12-21'
+                          project_id: 1
+                          project_name: 'Title Exemple'
+                        -
+                          id: 3
+                          title: Christian3
+                          description: null
+                          status: OPEN
+                          deadline: '2021-12-21'
+                          project_id: 1
+                          project_name: 'Title Exemple'
+                      '2021-12-22':
+                        -
+                          id: 7
+                          title: Christian6
+                          description: null
+                          status: 'IN PROGRESS'
+                          deadline: '2021-12-22'
+                          project_id: 1
+                          project_name: 'Title Exemple'
+                        -
+                          id: 8
+                          title: Christian7
+                          description: null
+                          status: 'IN PROGRESS'
+                          deadline: '2021-12-22'
+                          project_id: 1
+                          project_name: 'Title Exemple'
+                      '2021-12-23':
+                        -
+                          id: 10
+                          title: Christian8
+                          description: null
+                          status: REVIEW
+                          deadline: '2021-12-23'
+                          project_id: 1
+                          project_name: 'Title Exemple'
+                      '2021-12-24':
+                        -
+                          id: 11
+                          title: Christian9
+                          description: null
+                          status: CLOSE
+                          deadline: '2021-12-24'
+                          project_id: 1
+                          project_name: 'Title Exemple'
+      tags:
+        - Task
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deadline:
+                  type: string
+                  description: 'Task deadline. Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: 25/12/2021
+                project_id:
+                  type: integer
+                  description: 'Task project.'
+                  example: 1
+                status:
+                  type: string
+                  description: 'ProjTaskect status.'
+                  example: ABERTO
+                group:
+                  type: string
+                  description: 'Group tasks.'
+                  example: deadline
+      security: []
+  /task:
+    post:
+      summary: 'Create new Task'
+      description: 'Create new Task'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: Christian
+                    description: null
+                    status: OPEN
+                    deadline: '2021-12-21'
+                    project_id: 1
+                    project_name: 'Title Exemple'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      title: Christian
+                      description: null
+                      status: OPEN
+                      deadline: '2021-12-21'
+                      project_id: 1
+                      project_name: 'Title Exemple'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    title:
+                      - 'The title field is required.'
+                      - 'The title must be a string.'
+                      - 'The title must not be greater than 60 characters.'
+                      - 'The title has already been taken.'
+                    description:
+                      - 'The description must be a string.'
+                    status:
+                      - 'The status must be a string.'
+                      - 'The status is invalid.'
+                    deadline:
+                      - 'The deadline does not match the format Y-m-d.'
+                      - 'The deadline does not match the format Y-m-d.'
+                    project_id:
+                      - 'The project id field is required.'
+                      - 'The project id must be an integer.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    example:
+                      title:
+                        - 'The title field is required.'
+                        - 'The title must be a string.'
+                        - 'The title must not be greater than 60 characters.'
+                        - 'The title has already been taken.'
+                      description:
+                        - 'The description must be a string.'
+                      status:
+                        - 'The status must be a string.'
+                        - 'The status is invalid.'
+                      deadline:
+                        - 'The deadline does not match the format Y-m-d.'
+                        - 'The deadline does not match the format Y-m-d.'
+                      project_id:
+                        - 'The project id field is required.'
+                        - 'The project id must be an integer.'
+      tags:
+        - Task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                project_id:
+                  type: integer
+                  description: 'Task project.'
+                  example: 1
+                title:
+                  type: string
+                  description: 'Task Title. This field is required when <code>project_id</code> is present. Must not be greater than 60 characters.'
+                  example: 'First Task'
+                description:
+                  type: string
+                  description: 'Task description. Must not be greater than 200 characters.'
+                  example: 'Create Project'
+                status:
+                  type: string
+                  description: 'ProjTaskect status.'
+                  example: ABERTO
+                deadline:
+                  type: string
+                  description: 'Task deadline. Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: 25/12/2021
+              required:
+                - project_id
+      security: []
+  /auth/register:
+    post:
+      summary: 'Register new user'
+      description: 'Register new user'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User Registred.'
+                properties:
+                  message:
+                    type: string
+                    example: 'User Registred.'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                      - 'The name must be a string.'
+                      - 'The name must not be greater than 25 characters.'
+                    email:
+                      - 'The email field is required.'
+                      - 'The email must be a string.'
+                      - 'The email must be a valid email address.'
+                      - 'The email has already been taken.'
+                    password:
+                      - 'The password field is required.'
+                      - 'The password must be a string.'
+                      - 'The password confirmation does not match.'
+                      - 'The password must be at least 8 characters.'
+                      - 'The password must not be greater than 16 characters.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    example:
+                      name:
+                        - 'The name field is required.'
+                        - 'The name must be a string.'
+                        - 'The name must not be greater than 25 characters.'
+                      email:
+                        - 'The email field is required.'
+                        - 'The email must be a string.'
+                        - 'The email must be a valid email address.'
+                        - 'The email has already been taken.'
+                      password:
+                        - 'The password field is required.'
+                        - 'The password must be a string.'
+                        - 'The password confirmation does not match.'
+                        - 'The password must be at least 8 characters.'
+                        - 'The password must not be greater than 16 characters.'
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'User name. Must not be greater than 25 characters.'
+                  example: 'Pedro Paulo'
+                email:
+                  type: string
+                  description: 'User email. Must be a valid email address.'
+                  example: email@email.com
+                password:
+                  type: string
+                  description: 'User password. Must be at least 8 characters. Must not be greater than 16 characters.'
+                  example: password@@@
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /auth/login:
+    post:
+      summary: 'User login'
+      description: 'User login'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 13|HfI40OFYLjWEahpM4QgWEvdqbXbVRpPIelNehKq0
+                properties:
+                  token:
+                    type: string
+                    example: 13|HfI40OFYLjWEahpM4QgWEvdqbXbVRpPIelNehKq0
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                      - 'The email must be a string.'
+                      - 'The email must be a valid email address.'
+                    password:
+                      - 'The password field is required.'
+                      - 'The password must be a string.'
+                      - 'The password confirmation does not match.'
+                      - 'The password must be at least 8 characters.'
+                      - 'The password must not be greater than 16 characters.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    example:
+                      email:
+                        - 'The email field is required.'
+                        - 'The email must be a string.'
+                        - 'The email must be a valid email address.'
+                      password:
+                        - 'The password field is required.'
+                        - 'The password must be a string.'
+                        - 'The password confirmation does not match.'
+                        - 'The password must be at least 8 characters.'
+                        - 'The password must not be greater than 16 characters.'
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'User email. Must be a valid email address.'
+                  example: email@email.com
+                password:
+                  type: string
+                  description: 'User password. Must be at least 8 characters. Must not be greater than 16 characters.'
+                  example: senha@@@
+              required:
+                - email
+                - password
+      security: []
+  /auth/logout:
+    get:
+      summary: 'User logout'
+      description: 'User logout'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 'User Logout.'
+                properties:
+                  token:
+                    type: string
+                    example: 'User Logout.'
+      tags:
+        - User
+      security: []
+tags:
+  -
+    name: Project
+    description: ''
+  -
+    name: Task
+    description: ''
+  -
+    name: User
+    description: ''

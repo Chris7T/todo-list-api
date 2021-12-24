@@ -1,0 +1,2511 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.20.0.js"></script>
+
+    <script src="../docs/js/theme-default-3.20.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="project">
+                    <a href="#project">Project</a>
+                </li>
+                                    <ul id="tocify-subheader-project" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="project-DELETEproject--id-">
+                        <a href="#project-DELETEproject--id-">Delete Project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="project-GETproject-unlink--project-">
+                        <a href="#project-GETproject-unlink--project-">Unlink Project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="project-GETproject-link--key-">
+                        <a href="#project-GETproject-link--key-">Link Project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="project-GETproject-generate--project-">
+                        <a href="#project-GETproject-generate--project-">Generate link Project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="project-GETproject">
+                        <a href="#project-GETproject">List Project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="project-GETproject--id-">
+                        <a href="#project-GETproject--id-">Show Project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="project-POSTproject">
+                        <a href="#project-POSTproject">Create new Project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="project-PUTproject--id-">
+                        <a href="#project-PUTproject--id-">Update Project</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="task">
+                    <a href="#task">Task</a>
+                </li>
+                                    <ul id="tocify-subheader-task" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="task-GETtask--id-">
+                        <a href="#task-GETtask--id-">Show Task</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="task-DELETEtask--id-">
+                        <a href="#task-DELETEtask--id-">Delete Task</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="task-POSTtask-list">
+                        <a href="#task-POSTtask-list">List Task</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="task-POSTtask">
+                        <a href="#task-POSTtask">Create new Task</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="task-PUTtask--id-">
+                        <a href="#task-PUTtask--id-">Update Task</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user">
+                    <a href="#user">User</a>
+                </li>
+                                    <ul id="tocify-subheader-user" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-POSTauth-register">
+                        <a href="#user-POSTauth-register">Register new user</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="user-POSTauth-login">
+                        <a href="#user-POSTauth-login">User login</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="user-GETauth-logout">
+                        <a href="#user-GETauth-logout">User logout</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: December 23 2021</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="project">Project</h1>
+
+    
+
+            <h2 id="project-DELETEproject--id-">Delete Project</h2>
+
+<p>
+</p>
+
+<p>Delete register do Project</p>
+
+<span id="example-requests-DELETEproject--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/project/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEproject--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;OK&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Project]&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You dont have permission on this Project!&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEproject--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEproject--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEproject--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEproject--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEproject--id-"></code></pre>
+</span>
+<form id="form-DELETEproject--id-" data-method="DELETE"
+      data-path="project/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEproject--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEproject--id-"
+                    onclick="tryItOut('DELETEproject--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEproject--id-"
+                    onclick="cancelTryOut('DELETEproject--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEproject--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>project/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEproject--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                    </form>
+
+            <h2 id="project-GETproject-unlink--project-">Unlink Project</h2>
+
+<p>
+</p>
+
+<p>Unlink User to Project</p>
+
+<span id="example-requests-GETproject-unlink--project-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/project/unlink/12" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project/unlink/12"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETproject-unlink--project-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Project removed.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Project]&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETproject-unlink--project-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETproject-unlink--project-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETproject-unlink--project-"></code></pre>
+</span>
+<span id="execution-error-GETproject-unlink--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETproject-unlink--project-"></code></pre>
+</span>
+<form id="form-GETproject-unlink--project-" data-method="GET"
+      data-path="project/unlink/{project}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETproject-unlink--project-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETproject-unlink--project-"
+                    onclick="tryItOut('GETproject-unlink--project-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETproject-unlink--project-"
+                    onclick="cancelTryOut('GETproject-unlink--project-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETproject-unlink--project-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>project/unlink/{project}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>project</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="project"
+               data-endpoint="GETproject-unlink--project-"
+               value="12"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETproject-unlink--project-"
+               value="2"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                    </form>
+
+            <h2 id="project-GETproject-link--key-">Link Project</h2>
+
+<p>
+</p>
+
+<p>Link User to Project</p>
+
+<span id="example-requests-GETproject-link--key-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/project/link/16" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project/link/16"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETproject-link--key-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Project linked.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Project]&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETproject-link--key-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETproject-link--key-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETproject-link--key-"></code></pre>
+</span>
+<span id="execution-error-GETproject-link--key-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETproject-link--key-"></code></pre>
+</span>
+<form id="form-GETproject-link--key-" data-method="GET"
+      data-path="project/link/{key}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETproject-link--key-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETproject-link--key-"
+                    onclick="tryItOut('GETproject-link--key-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETproject-link--key-"
+                    onclick="cancelTryOut('GETproject-link--key-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETproject-link--key-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>project/link/{key}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>key</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="key"
+               data-endpoint="GETproject-link--key-"
+               value="16"
+               data-component="url" hidden>
+    <br>
+<p>The key of project.</p>
+            </p>
+                    </form>
+
+            <h2 id="project-GETproject-generate--project-">Generate link Project</h2>
+
+<p>
+</p>
+
+<p>Generate link Project to other users</p>
+
+<span id="example-requests-GETproject-generate--project-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/project/generate/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project/generate/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETproject-generate--project-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;/project/link/{{key}}&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Project]&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You dont have permission on this Project!&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETproject-generate--project-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETproject-generate--project-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETproject-generate--project-"></code></pre>
+</span>
+<span id="execution-error-GETproject-generate--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETproject-generate--project-"></code></pre>
+</span>
+<form id="form-GETproject-generate--project-" data-method="GET"
+      data-path="project/generate/{project}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETproject-generate--project-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETproject-generate--project-"
+                    onclick="tryItOut('GETproject-generate--project-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETproject-generate--project-"
+                    onclick="cancelTryOut('GETproject-generate--project-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETproject-generate--project-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>project/generate/{project}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>project</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="project"
+               data-endpoint="GETproject-generate--project-"
+               value="2"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETproject-generate--project-"
+               value="4"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                    </form>
+
+            <h2 id="project-GETproject">List Project</h2>
+
+<p>
+</p>
+
+<p>Return all register</p>
+
+<span id="example-requests-GETproject">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/project" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETproject">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Title Exemple&quot;,
+            &quot;owner&quot;: &quot;Christian&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Project&quot;,
+            &quot;owner&quot;: &quot;Fred&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Work Flow&quot;,
+            &quot;owner&quot;: &quot;Matheus&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETproject" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETproject"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETproject"></code></pre>
+</span>
+<span id="execution-error-GETproject" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETproject"></code></pre>
+</span>
+<form id="form-GETproject" data-method="GET"
+      data-path="project"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETproject', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETproject"
+                    onclick="tryItOut('GETproject');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETproject"
+                    onclick="cancelTryOut('GETproject');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETproject" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>project</code></b>
+        </p>
+                    </form>
+
+            <h2 id="project-GETproject--id-">Show Project</h2>
+
+<p>
+</p>
+
+<p>Return Project Data</p>
+
+<span id="example-requests-GETproject--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/project/3" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project/3"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETproject--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Project]&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You dont have permission on this Project!&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Title Exemple&quot;,
+            &quot;owner&quot;: &quot;Christian&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETproject--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETproject--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETproject--id-"></code></pre>
+</span>
+<span id="execution-error-GETproject--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETproject--id-"></code></pre>
+</span>
+<form id="form-GETproject--id-" data-method="GET"
+      data-path="project/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETproject--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETproject--id-"
+                    onclick="tryItOut('GETproject--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETproject--id-"
+                    onclick="cancelTryOut('GETproject--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETproject--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>project/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETproject--id-"
+               value="3"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                    </form>
+
+            <h2 id="project-POSTproject">Create new Project</h2>
+
+<p>
+</p>
+
+<p>Create new Project</p>
+
+<span id="example-requests-POSTproject">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/project" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"New Project\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "New Project"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTproject">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Title Exemple&quot;,
+            &quot;owner&quot;: &quot;Christian&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;title&quot;: [
+            &quot;The title field is required.&quot;,
+            &quot;The title must not be greater than 60 characters.&quot;,
+            &quot;The title must be a string.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTproject" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTproject"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTproject"></code></pre>
+</span>
+<span id="execution-error-POSTproject" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTproject"></code></pre>
+</span>
+<form id="form-POSTproject" data-method="POST"
+      data-path="project"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTproject', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTproject"
+                    onclick="tryItOut('POSTproject');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTproject"
+                    onclick="cancelTryOut('POSTproject');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTproject" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>project</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTproject"
+               value="New Project"
+               data-component="body" hidden>
+    <br>
+<p>Project Title. Must not be greater than 60 characters.</p>
+        </p>
+        </form>
+
+            <h2 id="project-PUTproject--id-">Update Project</h2>
+
+<p>
+</p>
+
+<p>Update Project Data</p>
+
+<span id="example-requests-PUTproject--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/project/3" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"New Project\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/project/3"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "New Project"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTproject--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Project]&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You dont have permission on this Project!&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Title Exemple&quot;,
+            &quot;owner&quot;: &quot;Christian&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;title&quot;: [
+            &quot;The title field is required.&quot;,
+            &quot;The title must not be greater than 60 characters.&quot;,
+            &quot;The title must be a string.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTproject--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTproject--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTproject--id-"></code></pre>
+</span>
+<span id="execution-error-PUTproject--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTproject--id-"></code></pre>
+</span>
+<form id="form-PUTproject--id-" data-method="PUT"
+      data-path="project/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTproject--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTproject--id-"
+                    onclick="tryItOut('PUTproject--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTproject--id-"
+                    onclick="cancelTryOut('PUTproject--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTproject--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>project/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>project/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTproject--id-"
+               value="3"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="PUTproject--id-"
+               value="New Project"
+               data-component="body" hidden>
+    <br>
+<p>Project Title. Must not be greater than 60 characters.</p>
+        </p>
+        </form>
+
+        <h1 id="task">Task</h1>
+
+    
+
+            <h2 id="task-GETtask--id-">Show Task</h2>
+
+<p>
+</p>
+
+<p>Return Task Data</p>
+
+<span id="example-requests-GETtask--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/task/8" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/task/8"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETtask--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Task]&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You dont have permission on this Task!&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Christian&quot;,
+        &quot;description&quot;: null,
+        &quot;status&quot;: &quot;OPEN&quot;,
+        &quot;deadline&quot;: &quot;2021-12-21&quot;,
+        &quot;project_id&quot;: 1,
+        &quot;project_name&quot;: &quot;Title Exemple&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETtask--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETtask--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETtask--id-"></code></pre>
+</span>
+<span id="execution-error-GETtask--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETtask--id-"></code></pre>
+</span>
+<form id="form-GETtask--id-" data-method="GET"
+      data-path="task/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETtask--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETtask--id-"
+                    onclick="tryItOut('GETtask--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETtask--id-"
+                    onclick="cancelTryOut('GETtask--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETtask--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>task/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETtask--id-"
+               value="8"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                    </form>
+
+            <h2 id="task-DELETEtask--id-">Delete Task</h2>
+
+<p>
+</p>
+
+<p>Delete register do Task</p>
+
+<span id="example-requests-DELETEtask--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/task/20" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/task/20"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEtask--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;OK&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Task]&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You are not on this project.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEtask--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEtask--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEtask--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEtask--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEtask--id-"></code></pre>
+</span>
+<form id="form-DELETEtask--id-" data-method="DELETE"
+      data-path="task/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEtask--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEtask--id-"
+                    onclick="tryItOut('DELETEtask--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEtask--id-"
+                    onclick="cancelTryOut('DELETEtask--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEtask--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>task/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEtask--id-"
+               value="20"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                    </form>
+
+            <h2 id="task-POSTtask-list">List Task</h2>
+
+<p>
+</p>
+
+<p>Return all register</p>
+
+<span id="example-requests-POSTtask-list">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/task/list" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"deadline\": \"25\\/12\\/2021\",
+    \"project_id\": 1,
+    \"status\": \"ABERTO\",
+    \"group\": \"deadline\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/task/list"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "deadline": "25\/12\/2021",
+    "project_id": 1,
+    "status": "ABERTO",
+    "group": "deadline"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTtask-list">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Christian&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;OPEN&quot;,
+            &quot;deadline&quot;: &quot;2021-12-21&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Christian2&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;OPEN&quot;,
+            &quot;deadline&quot;: &quot;2021-12-21&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;Christian3&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;OPEN&quot;,
+            &quot;deadline&quot;: &quot;2021-12-21&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;Christian4&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;OPEN&quot;,
+            &quot;deadline&quot;: &quot;2021-12-21&quot;,
+            &quot;project_id&quot;: 2,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Christian6&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;IN PROGRESS&quot;,
+            &quot;deadline&quot;: &quot;2021-12-22&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;Christian7&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;IN PROGRESS&quot;,
+            &quot;deadline&quot;: &quot;2021-12-22&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Christian8&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;REVIEW&quot;,
+            &quot;deadline&quot;: &quot;2021-12-23&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;Christian9&quot;,
+            &quot;description&quot;: null,
+            &quot;status&quot;: &quot;CLOSE&quot;,
+            &quot;deadline&quot;: &quot;2021-12-24&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;project_name&quot;: &quot;Title Exemple&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;2021-12-21&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;Christian&quot;,
+                &quot;description&quot;: null,
+                &quot;status&quot;: &quot;OPEN&quot;,
+                &quot;deadline&quot;: &quot;2021-12-21&quot;,
+                &quot;project_id&quot;: 1,
+                &quot;project_name&quot;: &quot;Title Exemple&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Christian2&quot;,
+                &quot;description&quot;: null,
+                &quot;status&quot;: &quot;OPEN&quot;,
+                &quot;deadline&quot;: &quot;2021-12-21&quot;,
+                &quot;project_id&quot;: 1,
+                &quot;project_name&quot;: &quot;Title Exemple&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;title&quot;: &quot;Christian3&quot;,
+                &quot;description&quot;: null,
+                &quot;status&quot;: &quot;OPEN&quot;,
+                &quot;deadline&quot;: &quot;2021-12-21&quot;,
+                &quot;project_id&quot;: 1,
+                &quot;project_name&quot;: &quot;Title Exemple&quot;
+            }
+        ],
+        &quot;2021-12-22&quot;: [
+            {
+                &quot;id&quot;: 7,
+                &quot;title&quot;: &quot;Christian6&quot;,
+                &quot;description&quot;: null,
+                &quot;status&quot;: &quot;IN PROGRESS&quot;,
+                &quot;deadline&quot;: &quot;2021-12-22&quot;,
+                &quot;project_id&quot;: 1,
+                &quot;project_name&quot;: &quot;Title Exemple&quot;
+            },
+            {
+                &quot;id&quot;: 8,
+                &quot;title&quot;: &quot;Christian7&quot;,
+                &quot;description&quot;: null,
+                &quot;status&quot;: &quot;IN PROGRESS&quot;,
+                &quot;deadline&quot;: &quot;2021-12-22&quot;,
+                &quot;project_id&quot;: 1,
+                &quot;project_name&quot;: &quot;Title Exemple&quot;
+            }
+        ],
+        &quot;2021-12-23&quot;: [
+            {
+                &quot;id&quot;: 10,
+                &quot;title&quot;: &quot;Christian8&quot;,
+                &quot;description&quot;: null,
+                &quot;status&quot;: &quot;REVIEW&quot;,
+                &quot;deadline&quot;: &quot;2021-12-23&quot;,
+                &quot;project_id&quot;: 1,
+                &quot;project_name&quot;: &quot;Title Exemple&quot;
+            }
+        ],
+        &quot;2021-12-24&quot;: [
+            {
+                &quot;id&quot;: 11,
+                &quot;title&quot;: &quot;Christian9&quot;,
+                &quot;description&quot;: null,
+                &quot;status&quot;: &quot;CLOSE&quot;,
+                &quot;deadline&quot;: &quot;2021-12-24&quot;,
+                &quot;project_id&quot;: 1,
+                &quot;project_name&quot;: &quot;Title Exemple&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTtask-list" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTtask-list"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTtask-list"></code></pre>
+</span>
+<span id="execution-error-POSTtask-list" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTtask-list"></code></pre>
+</span>
+<form id="form-POSTtask-list" data-method="POST"
+      data-path="task/list"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTtask-list', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTtask-list"
+                    onclick="tryItOut('POSTtask-list');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTtask-list"
+                    onclick="cancelTryOut('POSTtask-list');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTtask-list" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>task/list</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>deadline</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="deadline"
+               data-endpoint="POSTtask-list"
+               value="25/12/2021"
+               data-component="body" hidden>
+    <br>
+<p>Task deadline. Must be a valid date in the format <code>Y-m-d</code>.</p>
+        </p>
+                <p>
+            <b><code>project_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="project_id"
+               data-endpoint="POSTtask-list"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Task project.</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="status"
+               data-endpoint="POSTtask-list"
+               value="ABERTO"
+               data-component="body" hidden>
+    <br>
+<p>ProjTaskect status.</p>
+        </p>
+                <p>
+            <b><code>group</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="group"
+               data-endpoint="POSTtask-list"
+               value="deadline"
+               data-component="body" hidden>
+    <br>
+<p>Group tasks.</p>
+        </p>
+        </form>
+
+            <h2 id="task-POSTtask">Create new Task</h2>
+
+<p>
+</p>
+
+<p>Create new Task</p>
+
+<span id="example-requests-POSTtask">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/task" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"project_id\": 1,
+    \"title\": \"First Task\",
+    \"description\": \"Create Project\",
+    \"status\": \"ABERTO\",
+    \"deadline\": \"25\\/12\\/2021\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/task"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "project_id": 1,
+    "title": "First Task",
+    "description": "Create Project",
+    "status": "ABERTO",
+    "deadline": "25\/12\/2021"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTtask">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Christian&quot;,
+        &quot;description&quot;: null,
+        &quot;status&quot;: &quot;OPEN&quot;,
+        &quot;deadline&quot;: &quot;2021-12-21&quot;,
+        &quot;project_id&quot;: 1,
+        &quot;project_name&quot;: &quot;Title Exemple&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;title&quot;: [
+            &quot;The title field is required.&quot;,
+            &quot;The title must be a string.&quot;,
+            &quot;The title must not be greater than 60 characters.&quot;,
+            &quot;The title has already been taken.&quot;
+        ],
+        &quot;description&quot;: [
+            &quot;The description must be a string.&quot;
+        ],
+        &quot;status&quot;: [
+            &quot;The status must be a string.&quot;,
+            &quot;The status is invalid.&quot;
+        ],
+        &quot;deadline&quot;: [
+            &quot;The deadline does not match the format Y-m-d.&quot;,
+            &quot;The deadline does not match the format Y-m-d.&quot;
+        ],
+        &quot;project_id&quot;: [
+            &quot;The project id field is required.&quot;,
+            &quot;The project id must be an integer.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTtask" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTtask"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTtask"></code></pre>
+</span>
+<span id="execution-error-POSTtask" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTtask"></code></pre>
+</span>
+<form id="form-POSTtask" data-method="POST"
+      data-path="task"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTtask', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTtask"
+                    onclick="tryItOut('POSTtask');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTtask"
+                    onclick="cancelTryOut('POSTtask');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTtask" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>task</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>project_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="project_id"
+               data-endpoint="POSTtask"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Task project.</p>
+        </p>
+                <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTtask"
+               value="First Task"
+               data-component="body" hidden>
+    <br>
+<p>Task Title. This field is required when <code>project_id</code> is present. Must not be greater than 60 characters.</p>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="POSTtask"
+               value="Create Project"
+               data-component="body" hidden>
+    <br>
+<p>Task description. Must not be greater than 200 characters.</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="status"
+               data-endpoint="POSTtask"
+               value="ABERTO"
+               data-component="body" hidden>
+    <br>
+<p>ProjTaskect status.</p>
+        </p>
+                <p>
+            <b><code>deadline</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="deadline"
+               data-endpoint="POSTtask"
+               value="25/12/2021"
+               data-component="body" hidden>
+    <br>
+<p>Task deadline. Must be a valid date in the format <code>Y-m-d</code>.</p>
+        </p>
+        </form>
+
+            <h2 id="task-PUTtask--id-">Update Task</h2>
+
+<p>
+</p>
+
+<p>Update Task Data</p>
+
+<span id="example-requests-PUTtask--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/task/6" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"First Task\",
+    \"description\": \"Create Project\",
+    \"status\": \"ABERTO\",
+    \"deadline\": \"25\\/12\\/2021\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/task/6"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "First Task",
+    "description": "Create Project",
+    "status": "ABERTO",
+    "deadline": "25\/12\/2021"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTtask--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Task]&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You are not on this project.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Christian&quot;,
+        &quot;description&quot;: null,
+        &quot;status&quot;: &quot;OPEN&quot;,
+        &quot;deadline&quot;: &quot;2021-12-21&quot;,
+        &quot;project_id&quot;: 1,
+        &quot;project_name&quot;: &quot;Title Exemple&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;title&quot;: [
+            &quot;The title must be a string.&quot;,
+            &quot;The title must not be greater than 60 characters.&quot;,
+            &quot;The title has already been taken.&quot;
+        ],
+        &quot;description&quot;: [
+            &quot;The description must be a string.&quot;
+        ],
+        &quot;status&quot;: [
+            &quot;The status must be a string.&quot;,
+            &quot;The status is invalid.&quot;
+        ],
+        &quot;deadline&quot;: [
+            &quot;The deadline does not match the format Y-m-d.&quot;,
+            &quot;The deadline does not match the format Y-m-d.&quot;
+        ],
+        &quot;project_id&quot;: [
+            &quot;The project id must be an integer.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTtask--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTtask--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTtask--id-"></code></pre>
+</span>
+<span id="execution-error-PUTtask--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTtask--id-"></code></pre>
+</span>
+<form id="form-PUTtask--id-" data-method="PUT"
+      data-path="task/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTtask--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTtask--id-"
+                    onclick="tryItOut('PUTtask--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTtask--id-"
+                    onclick="cancelTryOut('PUTtask--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTtask--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>task/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>task/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTtask--id-"
+               value="6"
+               data-component="url" hidden>
+    <br>
+<p>The register id.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="PUTtask--id-"
+               value="First Task"
+               data-component="body" hidden>
+    <br>
+<p>Task Title. Must not be greater than 60 characters.</p>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="PUTtask--id-"
+               value="Create Project"
+               data-component="body" hidden>
+    <br>
+<p>Task description. Must not be greater than 200 characters.</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="status"
+               data-endpoint="PUTtask--id-"
+               value="ABERTO"
+               data-component="body" hidden>
+    <br>
+<p>ProjTaskect status.</p>
+        </p>
+                <p>
+            <b><code>deadline</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="deadline"
+               data-endpoint="PUTtask--id-"
+               value="25/12/2021"
+               data-component="body" hidden>
+    <br>
+<p>Task deadline. Must be a valid date in the format <code>Y-m-d</code>.</p>
+        </p>
+        </form>
+
+        <h1 id="user">User</h1>
+
+    
+
+            <h2 id="user-POSTauth-register">Register new user</h2>
+
+<p>
+</p>
+
+<p>Register new user</p>
+
+<span id="example-requests-POSTauth-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/auth/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Pedro Paulo\",
+    \"email\": \"email@email.com\",
+    \"password\": \"password@@@\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/auth/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Pedro Paulo",
+    "email": "email@email.com",
+    "password": "password@@@"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTauth-register">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;User Registred.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;name&quot;: [
+            &quot;The name field is required.&quot;,
+            &quot;The name must be a string.&quot;,
+            &quot;The name must not be greater than 25 characters.&quot;
+        ],
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;,
+            &quot;The email must be a string.&quot;,
+            &quot;The email must be a valid email address.&quot;,
+            &quot;The email has already been taken.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password field is required.&quot;,
+            &quot;The password must be a string.&quot;,
+            &quot;The password confirmation does not match.&quot;,
+            &quot;The password must be at least 8 characters.&quot;,
+            &quot;The password must not be greater than 16 characters.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTauth-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTauth-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTauth-register"></code></pre>
+</span>
+<span id="execution-error-POSTauth-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTauth-register"></code></pre>
+</span>
+<form id="form-POSTauth-register" data-method="POST"
+      data-path="auth/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTauth-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTauth-register"
+                    onclick="tryItOut('POSTauth-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTauth-register"
+                    onclick="cancelTryOut('POSTauth-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTauth-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>auth/register</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTauth-register"
+               value="Pedro Paulo"
+               data-component="body" hidden>
+    <br>
+<p>User name. Must not be greater than 25 characters.</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTauth-register"
+               value="email@email.com"
+               data-component="body" hidden>
+    <br>
+<p>User email. Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTauth-register"
+               value="password@@@"
+               data-component="body" hidden>
+    <br>
+<p>User password. Must be at least 8 characters. Must not be greater than 16 characters.</p>
+        </p>
+        </form>
+
+            <h2 id="user-POSTauth-login">User login</h2>
+
+<p>
+</p>
+
+<p>User login</p>
+
+<span id="example-requests-POSTauth-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/auth/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"email@email.com\",
+    \"password\": \"senha@@@\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/auth/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "email@email.com",
+    "password": "senha@@@"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTauth-login">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;token&quot;: &quot;13|HfI40OFYLjWEahpM4QgWEvdqbXbVRpPIelNehKq0&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;,
+            &quot;The email must be a string.&quot;,
+            &quot;The email must be a valid email address.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password field is required.&quot;,
+            &quot;The password must be a string.&quot;,
+            &quot;The password confirmation does not match.&quot;,
+            &quot;The password must be at least 8 characters.&quot;,
+            &quot;The password must not be greater than 16 characters.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTauth-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTauth-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTauth-login"></code></pre>
+</span>
+<span id="execution-error-POSTauth-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTauth-login"></code></pre>
+</span>
+<form id="form-POSTauth-login" data-method="POST"
+      data-path="auth/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTauth-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTauth-login"
+                    onclick="tryItOut('POSTauth-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTauth-login"
+                    onclick="cancelTryOut('POSTauth-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTauth-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>auth/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTauth-login"
+               value="email@email.com"
+               data-component="body" hidden>
+    <br>
+<p>User email. Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTauth-login"
+               value="senha@@@"
+               data-component="body" hidden>
+    <br>
+<p>User password. Must be at least 8 characters. Must not be greater than 16 characters.</p>
+        </p>
+        </form>
+
+            <h2 id="user-GETauth-logout">User logout</h2>
+
+<p>
+</p>
+
+<p>User logout</p>
+
+<span id="example-requests-GETauth-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/auth/logout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/auth/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETauth-logout">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;token&quot;: &quot;User Logout.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETauth-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETauth-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETauth-logout"></code></pre>
+</span>
+<span id="execution-error-GETauth-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETauth-logout"></code></pre>
+</span>
+<form id="form-GETauth-logout" data-method="GET"
+      data-path="auth/logout"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETauth-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETauth-logout"
+                    onclick="tryItOut('GETauth-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETauth-logout"
+                    onclick="cancelTryOut('GETauth-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETauth-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>auth/logout</code></b>
+        </p>
+                    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

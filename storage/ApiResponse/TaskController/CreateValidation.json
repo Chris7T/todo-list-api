@@ -1,0 +1,26 @@
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "title": [
+            "The title field is required.",
+            "The title must be a string.",
+            "The title must not be greater than 60 characters.",
+            "The title has already been taken."
+        ],
+        "description": [
+            "The description must be a string."
+        ],
+        "status": [
+            "The status must be a string.",
+            "The status is invalid."
+        ],
+        "deadline": [
+            "The deadline does not match the format Y-m-d.",
+            "The deadline does not match the format Y-m-d."
+        ],
+        "project_id": [
+            "The project id field is required.",
+            "The project id must be an integer."
+        ]
+    }
+}
